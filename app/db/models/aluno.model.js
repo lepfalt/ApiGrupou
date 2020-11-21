@@ -28,6 +28,13 @@ Aluno.associate = (models)=>{
     },
     as: 'hardskills'
   });
+
+  Aluno.hasMany(models.tarefa, {
+    foreignKey: {
+      name: 'id_aluno'
+    },
+    as: 'tarefas'
+  });
 }
 
 module.exports = Aluno;
