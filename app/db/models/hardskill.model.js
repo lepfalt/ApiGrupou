@@ -28,6 +28,15 @@ HardSkill.associate = (models)=>{
     },
     as: 'alunos'
   });
+
+  HardSkill.belongsToMany(models.turma, {
+    through: 'turma_hardskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_hardskill',
+    },
+    as: 'turmas'
+  });
 }
 
 module.exports = HardSkill;

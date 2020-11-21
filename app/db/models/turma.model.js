@@ -21,12 +21,12 @@ const Turma = sequelize.define(name, {
 });
 
 Turma.associate = (models)=>{
-  Turma.belongsTo(models.disciplina, {
-    foreignKey: {
-      name: 'id_disciplina'
-    },
-    as: 'disciplina'
-  });
+  // Turma.belongsTo(models.disciplina, {
+  //   foreignKey: {
+  //     name: 'id_disciplina'
+  //   },
+  //   as: 'disciplina'
+  // });
 
   Turma.hasMany(models.grupo, {
     foreignKey: {
@@ -35,21 +35,21 @@ Turma.associate = (models)=>{
     as: 'grupos'
   });
 
-  Turma.hasMany(models.atividade_avaliativa, {
-    foreignKey: {
-      name: 'id_turma'
-    },
-    as: 'atividades_avaliativas'
-  });
+  // Turma.hasMany(models.atividade_avaliativa, {
+  //   foreignKey: {
+  //     name: 'id_turma'
+  //   },
+  //   as: 'atividades_avaliativas'
+  // });
 
-  Turma.belongsToMany(models.curso, {
-    through: 'turma_curso',
-    timestamps: false,
-    foreignKey: {
-      name: 'id_turma',
-    },
-    as: 'cursos'
-  });
+  // Turma.belongsToMany(models.curso, {
+  //   through: 'turma_curso',
+  //   timestamps: false,
+  //   foreignKey: {
+  //     name: 'id_turma',
+  //   },
+  //   as: 'cursos'
+  // });
 
   Turma.belongsToMany(models.hardskill, {
     through: 'turma_hardskill',
@@ -61,7 +61,7 @@ Turma.associate = (models)=>{
   });
 
   Turma.belongsToMany(models.aluno, {
-    through: 'turma_aluno',
+    through: 'aluno_turma',
     timestamps: false,
     foreignKey: {
       name: 'id_turma',
@@ -69,14 +69,14 @@ Turma.associate = (models)=>{
     as: 'alunos'
   });
 
-  Turma.belongsToMany(models.professor, {
-    through: 'turma_professor',
-    timestamps: false,
-    foreignKey: {
-      name: 'id_turma',
-    },
-    as: 'professores'
-  });
+  // Turma.belongsToMany(models.professor, {
+  //   through: 'turma_professor',
+  //   timestamps: false,
+  //   foreignKey: {
+  //     name: 'id_turma',
+  //   },
+  //   as: 'professores'
+  // });
 }
 
 module.exports = Turma;
