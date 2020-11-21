@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 
 const db = require('./app/db/models');
 
-db.sequelize.sync({force:true}).then(()=>{
-  console.log('Tabelas Dropadas e Sincronizadas.');
-});
+// db.sequelize.sync({force:true}).then(()=>{
+//   console.log('Tabelas Dropadas e Sincronizadas.');
+// });
 
 const app = express();
 
