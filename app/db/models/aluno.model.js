@@ -29,6 +29,15 @@ Aluno.associate = (models)=>{
     as: 'hardskills'
   });
 
+  Aluno.belongsToMany(models.grupo, {
+    through: 'aluno_grupo',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_aluno',
+    },
+    as: 'grupos'
+  });
+
   Aluno.hasMany(models.tarefa, {
     foreignKey: {
       name: 'id_aluno'

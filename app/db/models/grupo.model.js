@@ -3,6 +3,10 @@ const sequelize = require('../index').getConnection();
 const name = require('path').basename(__filename.replace('.model', ''), '.js')
 
 const Grupo = sequelize.define(name, {
+  nome_identificador: {
+    type: DataTypes.STRING(30),
+    allowNull: false
+  },
   createdAt: {
     type: DataTypes.DATE,
     field: 'criado_em'
@@ -24,11 +28,27 @@ Grupo.associate = (models)=>{
     as: 'tarefas'
   });
 
+  Grupo.belongsToMany(models.aluno, {
+    through: 'aluno_grupo',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_grupo',
+    },
+    as: 'alunos'
+  });
+
   Grupo.hasMany(models.avaliacao360, {
     foreignKey: {
       name: 'id_avaliacao360'
     },
     as: 'avaliacoes360'
+  });
+
+  Grupo.belongsTo(models.turma, {
+    foreignKey: {
+      name: 'id_turma'
+    },
+    as: 'turma'
   });
 
   Grupo.belongsTo(models.atividade_avaliativa, {
