@@ -21,12 +21,12 @@ const Turma = sequelize.define(name, {
 });
 
 Turma.associate = (models)=>{
-  // Turma.belongsTo(models.disciplina, {
-  //   foreignKey: {
-  //     name: 'id_disciplina'
-  //   },
-  //   as: 'disciplina'
-  // });
+  Turma.belongsTo(models.disciplina, {
+    foreignKey: {
+      name: 'id_disciplina'
+    },
+    as: 'disciplina'
+  });
 
   Turma.hasMany(models.grupo, {
     foreignKey: {
@@ -69,14 +69,14 @@ Turma.associate = (models)=>{
     as: 'alunos'
   });
 
-  // Turma.belongsToMany(models.professor, {
-  //   through: 'turma_professor',
-  //   timestamps: false,
-  //   foreignKey: {
-  //     name: 'id_turma',
-  //   },
-  //   as: 'professores'
-  // });
+  Turma.belongsToMany(models.professor, {
+    through: 'turma_professor',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_turma',
+    },
+    as: 'professores'
+  });
 }
 
 module.exports = Turma;

@@ -37,6 +37,15 @@ HardSkill.associate = (models)=>{
     },
     as: 'turmas'
   });
+
+  HardSkill.belongsToMany(models.disciplina, {
+    through: 'disciplina_hardskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_hardskill',
+    },
+    as: 'disciplina'
+  });
 }
 
 module.exports = HardSkill;
