@@ -44,7 +44,7 @@ HardSkill.associate = (models)=>{
     foreignKey: {
       name: 'id_hardskill',
     },
-    as: 'disciplina'
+    as: 'disciplinas'
   });
 }
 
