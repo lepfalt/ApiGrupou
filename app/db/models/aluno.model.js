@@ -54,6 +54,16 @@ Aluno.associate = (models)=>{
     as: 'tarefas'
   });
 
+
+  Aluno.belongsToMany(models.softskill, {
+    through: 'aluno_softskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_aluno',
+    },
+    as: 'softskills'
+  });
+
   Aluno.belongsTo(models.curso, {
     foreignKey: {
       name: 'id_curso'
@@ -73,6 +83,7 @@ Aluno.associate = (models)=>{
       name: 'id_aluno'
     },
     as: 'avaliacoes_360'
+
   });
 }
 
