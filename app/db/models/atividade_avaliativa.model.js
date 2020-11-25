@@ -45,12 +45,12 @@ AtividadeAvaliativa.associate = (models) => {
     as: 'hardskills'
   });
 
-  // AtividadeAvaliativa.hasMany(models.avaliacao360, {
-  //   foreignKey: {
-  //     name: 'id_avaliacao360'
-  //   },
-  //   as: 'avaliacoes360'
-  // });
+  AtividadeAvaliativa.hasMany(models.avaliacao_360, {
+    foreignKey: {
+      name: 'id_atividade_avaliativa'
+    },
+    as: 'avaliacoes360'
+  });
 
   AtividadeAvaliativa.hasMany(models.grupo, {
     foreignKey: {

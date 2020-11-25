@@ -53,6 +53,13 @@ Aluno.associate = (models)=>{
     },
     as: 'tarefas'
   });
+
+  Aluno.hasMany(models.avaliacao_360, {
+    foreignKey: {
+      name: 'id_aluno'
+    },
+    as: 'avaliacoes_360'
+  });
 }
 
 module.exports = Aluno;

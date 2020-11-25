@@ -37,12 +37,12 @@ Grupo.associate = (models)=>{
     as: 'alunos'
   });
 
-  // Grupo.hasMany(models.avaliacao360, {
-  //   foreignKey: {
-  //     name: 'id_avaliacao360'
-  //   },
-  //   as: 'avaliacoes360'
-  // });
+  Grupo.hasMany(models.avaliacao_360, {
+    foreignKey: {
+      name: 'id_grupo'
+    },
+    as: 'avaliacoes_360'
+  });
 
   Grupo.belongsTo(models.turma, {
     foreignKey: {
