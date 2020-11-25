@@ -35,21 +35,21 @@ Turma.associate = (models)=>{
     as: 'grupos'
   });
 
-  // Turma.hasMany(models.atividade_avaliativa, {
-  //   foreignKey: {
-  //     name: 'id_turma'
-  //   },
-  //   as: 'atividades_avaliativas'
-  // });
+  Turma.hasMany(models.atividade_avaliativa, {
+    foreignKey: {
+      name: 'id_turma'
+    },
+    as: 'atividades_avaliativas'
+  });
 
-  // Turma.belongsToMany(models.curso, {
-  //   through: 'turma_curso',
-  //   timestamps: false,
-  //   foreignKey: {
-  //     name: 'id_turma',
-  //   },
-  //   as: 'cursos'
-  // });
+  Turma.belongsToMany(models.curso, {
+    through: 'turma_curso',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_turma',
+    },
+    as: 'cursos'
+  });
 
   Turma.belongsToMany(models.hardskill, {
     through: 'turma_hardskill',
