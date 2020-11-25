@@ -54,6 +54,13 @@ Aluno.associate = (models)=>{
     as: 'tarefas'
   });
 
+  Aluno.hasMany(models.questao_dia, {
+    foreignKey: {
+      name: 'id_aluno'
+    },
+    as: 'questoes_dia'
+  });
+
   Aluno.hasMany(models.avaliacao_360, {
     foreignKey: {
       name: 'id_aluno'
