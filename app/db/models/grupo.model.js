@@ -51,12 +51,12 @@ Grupo.associate = (models)=>{
     as: 'turma'
   });
 
-  // Grupo.belongsTo(models.atividade_avaliativa, {
-  //   foreignKey: {
-  //     name: 'id_atividade_avaliativa'
-  //   },
-  //   as: 'atividade_avaliativa'
-  // });
+  Grupo.belongsTo(models.atividade_avaliativa, {
+    foreignKey: {
+      name: 'id_atividade_avaliativa'
+    },
+    as: 'atividade_avaliativa'
+  });
 }
 
 module.exports = Grupo;

@@ -29,6 +29,15 @@ HardSkill.associate = (models)=>{
     as: 'alunos'
   });
 
+  HardSkill.belongsToMany(models.atividade_avaliativa, {
+    through: 'atividade_avaliativa_hardskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_hardskill',
+    },
+    as: 'atividades_avaliativas'
+  });
+
   HardSkill.belongsToMany(models.turma, {
     through: 'turma_hardskill',
     timestamps: false,
