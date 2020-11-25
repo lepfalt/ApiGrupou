@@ -42,14 +42,14 @@ Turma.associate = (models)=>{
     as: 'atividades_avaliativas'
   });
 
-  // Turma.belongsToMany(models.curso, {
-  //   through: 'turma_curso',
-  //   timestamps: false,
-  //   foreignKey: {
-  //     name: 'id_turma',
-  //   },
-  //   as: 'cursos'
-  // });
+  Turma.belongsToMany(models.curso, {
+    through: 'turma_curso',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_turma',
+    },
+    as: 'cursos'
+  });
 
   Turma.belongsToMany(models.hardskill, {
     through: 'turma_hardskill',
