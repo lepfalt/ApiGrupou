@@ -46,14 +46,14 @@ Avaliacao360.associate = (models) => {
     as: 'aluno'
   });
 
-  // Avaliacao360.belongsToMany(models.softskill, {
-  //   through: 'avaliacao_360_softskill',
-  //   timestamps: false,
-  //   foreignKey: {
-  //     name: 'id_avaliacao_360',
-  //   },
-  //   as: 'softskills'
-  // });
+  Avaliacao360.belongsToMany(models.softskill, {
+    through: 'avaliacao_360_softskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_avaliacao_360',
+    },
+    as: 'softskills'
+  });
 }
 
 module.exports = Avaliacao360;

@@ -29,14 +29,14 @@ SoftSkill.associate = (models) => {
     as: 'alunos'
   });
 
-//   SoftSkill.belongsToMany(models.aluno, {
-//     through: 'aluno_avaliacao360',
-//     timestamps: false,
-//     foreignKey: {
-//       name: 'id_softskill',
-//     },
-//     as: 'avalicoes'
-//   });
+  SoftSkill.belongsToMany(models.avaliacao_360, {
+    through: 'avaliacao_360_softskill',
+    timestamps: false,
+    foreignKey: {
+      name: 'id_softskill',
+    },
+    as: 'avalicoes360'
+  });
 
 }
 
